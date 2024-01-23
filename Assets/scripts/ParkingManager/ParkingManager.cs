@@ -14,6 +14,8 @@ public class ParkingManager : MonoBehaviour
     private Transform parkingSlot; // Reference to the parking slot
 
     private ParkingSlotPositionSetter parkingSlotPositionSetter;
+
+    [SerializeField] private GameObject parkingIndicatorPanel;
     #endregion
 
 
@@ -79,6 +81,21 @@ public class ParkingManager : MonoBehaviour
             Debug.Log("Not parked yet. Try again!");
             Debug.Log(car.position.x - parkingSlot.position.x);
         }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+
+        if(other.gameObject.tag == "parkingIndicator")
+        {
+            parkingIndicatorPanel.SetActive(true);
+            print("Car is trying to park");
+        }
+        
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        parkingIndicatorPanel.SetActive(false);
     }
     #endregion
 }

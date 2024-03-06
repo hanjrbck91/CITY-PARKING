@@ -10,6 +10,7 @@ TagManager:
   - GamePlayManager
   - ParkingPoint
   - TrafficCar
+  - parkingIndicator
   layers:
   - Default
   - TransparentFX
